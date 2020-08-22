@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <p v-html="content"></p>
+    </div>
+
+    <script>
+        var app =new Vue({
+            el:"#app",
+            data:{
+                content:"<a href='../first/v-text.html'> 你好么前端</a>",
+            }
+        })
+    </script>
+</body>
+</html>

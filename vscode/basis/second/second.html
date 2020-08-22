@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>second.vue</title>
+    <script src="/vue.js"></script>
+</head>
+<body>
+    <div id="app" class="app">
+        {{message}}
+        <span>
+            {{message}}
+        </span>
+    </div>
+    <script>
+        var app =new Vue({
+            // el:"div",
+            // el:"#app",
+            el:".app",
+            data:{
+                message:"shahca"
+            }
+        })
+    </script>
+    
+</body>
+</html>

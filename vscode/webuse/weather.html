@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+    <script src="/axios.min.js"></script>
+</head>
+<body>
+    <div class="" id="app">
+
+        <div class="top-box">
+
+            <p>业业天气预报</p>
+
+            <input type="text" v-model="message" style="width: 200px;height: 30px;" @keyup.enter="weather" placeholder="请输入要查询的城市">
+
+            <button @click="weather">搜索</button>
+
+        </div>
+        
+        <div class="">
+            <a href="javascript:" @click="city('北京')"> 北京</a>
+        </div>
+
+        <ul>
+            <li v-for="item in weatherlist">
+                <div class="">
+                    <span>
+                        {{item.type}}
+                    </span>
+                </div>
+                <div class="">
+                    <b>
+                        {{item.low}}
+                    </b>
+                    <b>
+                        {{item.high}}
+                    </b>
+                </div>
+                <div class=""><span>{{item.date}} </span> </div>
+            </li>
+        </ul>
+
+        
+    </div>
+ 
+
+        <script>
+            var app=new Vue({
+                el:"#app",
+                data:{
+                    message:"",
+                    weatherlist:[],
+                },
+                methods: {
+                    weather:function(){
+                        var that=this;
+                        axios.get('http://wthrcdn.etouch.cn/weather_mini?city='+this.message)
+                        .then(function(response){
+                           that.weatherlist=response.data.data.forecast;
+                        }).catch(function(err){
+                            alert(err);
+                        })
+                    },
+
+                    city:function(city){
+                        this.message=city;
+                        this.weather();
+                    },
+
+                },
+            })
+        </script>
+    
+</body>
+</html>

@@ -8,8 +8,31 @@
 </head>
 <body>
     <div class="" id="app">
-        <img src="" alt="">
+        <input type="button" value="增加年龄" @click="addage">
+        <input type="button" value="切换显示状态" @click="changeisshow">
+        <img src="/photo/2018_07_20_21_12_IMG_0127.JPG"  alt="" v-show="isshow">
+        <img src="/photo/2018_08_02_12_08_IMG_0231.jpg" v-show="age>=18" alt="">
     </div>
+
+    <script>
+        var app =new Vue({
+            el:"#app",
+            data:{
+                isshow:false,
+                age:16,
+            },
+
+            methods: {
+                changeisshow:function(){
+                    this.isshow=! this.isshow;
+                },
+                addage:function(){
+                    this.age++;
+                },
+            },
+        })
+    </script>
+
     
 </body>
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if</title>
+    <script src="/vue.js"></script>
+</head>
+<body>
+    <div class="" id="app">
+        <input type="button" value="彭绮文眼中的业业" @click="changeif">
+        <p v-if="isshow">业业超级帅</p>
+    </div>
+
+        <script>
+            var app= new Vue({
+                el:"#app",
+                data:{
+                    isshow:false,
+                },
+                methods: {
+                    changeif:function(){
+                        this.isshow=!this.isshow;
+                    }
+                },
+            })
+        </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+    <script src="/axios.min.js"></script>
+
+</head>
+<body>
+    <input type="button" value="get" class="get">
+
+    <input type="button" value="post" class="post">
+    
+    <div class="" id="text">
+        <textarea name="" id="" cols="30" rows="10" v-text="message"></textarea>
+    </div>
+
+    <script>
+
+        document.querySelector(".get").onclick=function(){
+            axios.get("https://autumnfish.cn/api/joke/list?num=5")
+            .then(function(response){
+                console.log(response);
+            }),function(err){
+                console.log(err);
+            }
+        }
+
+        document.querySelector(".post").onclick=function(){
+            axios.post("https://autumnfish.cn/api/user/reg",
+            {username:"aring"})
+            .then(function(response){
+                console.log(response);
+            }),function(err){
+                console.log(err);
+            }
+        }
+
+        var app =new Vue({
+            el:"#text",
+            data:{
+                
+            },
+        })
+    </script>
+</body>
+</html>

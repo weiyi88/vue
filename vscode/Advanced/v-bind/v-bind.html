@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+    <style>
+        .active{
+            border: 2px solid red;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="" id="app">
+        <img v-bind:src="imgsrc"  alt="">
+        <br>
+        <img :src="imgsrc" :title="imgtitle+'!!!'" alt="" :class="active?'isactive':''" @click="getactive">
+        <br>
+        <img :src="imgsrc" :title="imgtitle+'!!!'" alt="" :class="{active:isactive}" @click="getactive">
+       
+    </div>
+
+    <script>
+        var app =new Vue({
+            el:"#app",
+            data:{
+                imgsrc:"/photo//微信截图_20200825113844.png",
+                imgtitile:"你好么",
+                isactive:false,
+            },
+
+            methods: {
+                getactive:function(){
+                 this.isactive= ! this.isactive;
+                }
+            },
+        })
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+</head>
+<body>
+    <div class="" id="app">
+        
+        <a @click="prev"  v-show="index!=0">上一张</a>
+        <img :src="imgarr[index]" alt="">
+        <a @click="next"  v-show="index<imgarr.length-1">下一张</a>
+    </div>
+
+    <script>
+        var app =new Vue({
+            el:"#app",
+            data:{
+                imgarr:["/photo/微信截图_20200825113844.png",
+                        "/photo/1.png",
+                        "/photo/2.png",
+                        "/photo/3.png",],
+                index:0,
+            },
+            methods: {
+                prev:function(){
+                    this.index--;
+                },
+
+                next:function(){
+                    this.index++;
+                },
+
+            },
+        })
+    </script>
+</body>
+</html>
